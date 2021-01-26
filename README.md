@@ -4,19 +4,19 @@ This project implements **MASCOT**, the first **M**od**A**lity-**S**witch **CO**
 
 # Data
 
-[**2013-06-01**](https://github.com/gustybear-research/x96_multi_moda_p_verf_osa/tree/main/exp_2013-06-01)
+[**2013-06-01**](https://github.com/gustybear-research/x96_multi_moda_p_verf_osa/tree/main/exp_2013_06_01)
 - MATLAB data file
 
-[**2019-12-31**](https://github.com/gustybear-research/x96_multi_moda_p_verf_osa/tree/main/exp_2019-12-31)
+[**2019-12-31**](https://github.com/gustybear-research/x96_multi_moda_p_verf_osa/tree/main/exp_2019_12_31)
 - Laboratory photographs and video
 
-[**2020-08-13**](https://github.com/gustybear-research/x96_multi_moda_p_verf_osa/tree/main/exp_2020-08-13)
+[**2020-08-13**](https://github.com/gustybear-research/x96_multi_moda_p_verf_osa/tree/main/exp_2020_08_13)
 - Laboratory photographs and video
 
-[**2020-08-20**](https://github.com/gustybear-research/x96_multi_moda_p_verf_osa/tree/main/exp_2020-08-20)
+[**2020-08-20**](https://github.com/gustybear-research/x96_multi_moda_p_verf_osa/tree/main/exp_2020_08_20)
 - Journal figures
 
-[**2020-09-29**](https://github.com/gustybear-research/x96_multi_moda_p_verf_osa/tree/main/exp_2020-09-29)
+[**2020-09-29**](https://github.com/gustybear-research/x96_multi_moda_p_verf_osa/tree/main/exp_2020_09_29)
 - Ground_Truth_No_Reflector
 - Ground_Truth_Reflector
 - PersonF_Blockage_Hand_Gestures
@@ -25,7 +25,7 @@ This project implements **MASCOT**, the first **M**od**A**lity-**S**witch **CO**
 - PersonM_Blockage_No_Gestures
 - PersonM_Blockage_Turn_Gesture
 
-[**2020-10-15**](https://github.com/gustybear-research/x96_multi_moda_p_verf_osa/tree/main/exp_2020-10-15)
+[**2020-10-15**](https://github.com/gustybear-research/x96_multi_moda_p_verf_osa/tree/main/exp_2020_10_15)
 - Samson_60sec_3cycle
 - Samson_60sec_3cycle_Tape
 - Samson_60sec_5cycle
@@ -33,5 +33,5 @@ This project implements **MASCOT**, the first **M**od**A**lity-**S**witch **CO**
 - Thomas_60sec_3cycle
 - Thomas_60sec_5cycle
 
-[**2020-10-22**](https://github.com/gustybear-research/x96_multi_moda_p_verf_osa/tree/main/exp_2020-10-22)
+[**2020-10-22**](https://github.com/gustybear-research/x96_multi_moda_p_verf_osa/tree/main/exp_2020_10_22)
 - MATLAB script for data analysis
