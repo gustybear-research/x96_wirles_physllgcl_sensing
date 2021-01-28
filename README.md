@@ -5,7 +5,15 @@ This project implements **MASCOT**, the first **M**od**A**lity-**S**witch **CO**
 # Data
 
 [**2013-06-01**](https://github.com/gustybear-research/x96_multi_moda_p_verf_osa/tree/main/exp_2013_06_01)
-- MATLAB data file
+- MATLAB data file from chest band and IQ radar data collected from two subjects
+  - Columns: 
+    - 1-I1
+    - 2-Q1   
+    - 3-I2
+    - 4-Q2
+    - 5-CB1
+    - 6-CB2
+    - 7-time
 
 [**2019-12-31**](https://github.com/gustybear-research/x96_multi_moda_p_verf_osa/tree/main/exp_2019_12_31)
 - Laboratory photographs and video
