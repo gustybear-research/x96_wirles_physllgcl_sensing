@@ -2,17 +2,17 @@
 clearvars; close all;
 
 %% Options
-i_ref = 3; % ["MufRef","NoRef","Ref"]
-i_freq = 2; % ["0.00Hz","0.20Hz","0.30Hz"]
-i_bkg = 2; % ["Far","Close"]
+i_ref = 1; % ["MufRef","NoRef","Ref"]
+i_freq = 3; % ["0.00Hz","0.20Hz","0.30Hz"]
+i_bkg = 1; % ["Far","Close"]
 sel_subcarriers = 0:31; % 0:31 for all subcarriers
 startTime = 0; % 0 for beginning
-endTime = 20; % inf for end
+endTime = 60; % inf for end
 plot_subcarriers = false;
 
 %% Load data
 cd ..
-exp = "\exp_2021_02_19\";
+experiment = "\exp_2021_02_19\";
 reflector = ["MufRef","NoRef","Ref"];
 freq = ["0.00Hz","0.20Hz","0.30Hz"];
 background = ["Far","Close"];
@@ -20,7 +20,7 @@ background = ["Far","Close"];
 % load the experiment data
 filename = strcat(reflector(i_ref),'_',freq(i_freq),'_',background(i_bkg),'.csv');
 file_title = strcat(reflector(i_ref),'-',freq(i_freq),'-',background(i_bkg));
-path = strcat(pwd, exp, filename);
+path = strcat(pwd, experiment, filename);
 data = readtable(path,'VariableNamingRule','preserve');
 cd ICA_analysis
 
@@ -38,9 +38,13 @@ for i=sel_subcarriers
     mag = 2*i+3;
     phase = 2*i+4;
     % convert mag and phase to cartesian
-    [a, b] = pol2cart(data{:,mag}, data{:,phase});
-    % store the signals as complex arrays
-    signals(:,i_signal) = complex(a, b);
+%     [a, b] = pol2cart(data{:,mag}, data{:,phase});
+%     % store the signals as complex arrays
+%     signals(:,i_signal) = complex(a, b);
+    % store signal as computed csi from phase and magnitude
+    signal_mag = data{:,mag};
+    signal_pha = data{:,phase};
+    signals(:,i_signal) = signal_mag .* exp(1i.*signal_pha);
     % advance to the next storage location
     i_signal = i_signal+1;
 end
@@ -51,25 +55,27 @@ if plot_subcarriers
     for i=1:size(signals,2)
         nexttile;
         hold on;
-        plot(data.Time, abs(signals(:,i)));
+        plot(data.Time, angle(signals(:,i)));
         title(sprintf('Channel %.0f', sel_subcarriers(i)));
         xlim([startTime endTime]);
     end
 end
 %% Compute ICA
 addpath('pca_ica');
-% Zica = abs(kICA(signals', 1));
-Zica = jader2013(abs(signals),2)';
+% Zica = abs(kICA(signals', 2));
+Zica = jader2013(angle(signals),2)';
 first_ind = Zica(:,1);
 second_ind = Zica(:,2);
 
 %% Plot ICA results
 figure();
 hold on;
-plot(data.Time, abs(Zica));
+plot(data.Time, normalize(Zica));
 xlim([startTime endTime]);
 legend('Independent Source 1', 'Independent Source 2');
-% plot(data.Time, second_ind1);
+figure();
+plot(data.Time, second_ind);
+xlim([startTime endTime]);
 
 %% Compute FFT from ICA
 Y = fft(normalize(Zica)); % compute FFT of normalized magnitude
